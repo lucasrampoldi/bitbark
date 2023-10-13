@@ -1,0 +1,53 @@
+<div class="logo">
+    <a href="/" class="simple-text logo-mini">
+        <div class="logo-image-small">
+            <img src="./assets/img/logo-2.png"/>
+        </div>
+    </a>
+    <a href="/" class="simple-text logo-normal">
+        Bitbark
+    </a>
+</div>
+
+<div class="sidebar-wrapper">
+    <div class="user">
+        <ng-container *ngIf="auth.user$ | async as user">
+            <div class="photo">
+                <img [src]="user.picture" alt="Profile"/>
+            </div>
+        </ng-container>
+
+        <div class="info">
+            <a [routerLink]="[menuProfile[0].path]" >
+            <span *ngIf="auth.user$ | async as user">
+                {{ user.name }}
+            </span>
+            </a>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <ul class="nav">
+        <li routerLinkActive="active" *ngFor="let menuitem of menuItems">
+            <a [routerLink]="[menuitem.path]" *ngIf="menuitem.type === 'link'">
+                <i class="{{menuitem.icontype}}"></i>
+                <p>{{menuitem.title}}</p>
+            </a>
+            <a data-toggle="collapse" href="#{{menuitem.collapse}}" *ngIf="menuitem.type === 'sub'">
+                <i class="{{menuitem.icontype}}"></i>
+                <p>{{menuitem.title}}<b class="caret"></b></p>
+            </a>
+
+            <div id="{{menuitem.collapse}}" class="collapse" *ngIf="menuitem.type === 'sub'">
+                <ul class="nav">
+                    <li routerLinkActive="active" *ngFor="let childitem of menuitem.children">
+                        <a [routerLink]="[menuitem.path, childitem.path]">
+                            <span class="sidebar-mini-icon">{{childitem.ab}}</span>
+                            <span class="sidebar-normal">{{childitem.title}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </li>
+    </ul>
+</div>

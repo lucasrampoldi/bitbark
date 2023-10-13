@@ -1,0 +1,158 @@
+<div class="main-content">
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5 col-md-4">
+                            <div class="icon-big text-center icon-warning">
+                                <i class="nc-icon nc-globe text-warning"></i>
+                            </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                            <div class="numbers">
+                                <p class="card-category">Projects</p>
+                                <p class="card-title">
+                                    {{ dashboard.TotalProjects }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-refresh"></i> Update Now
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5 col-md-4">
+                            <div class="icon-big text-center icon-warning">
+                                <i class="nc-icon nc-mobile text-success"></i>
+                            </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                            <div class="numbers">
+                                <p class="card-category">Stacks</p>
+                                <p class="card-title">
+                                    {{ dashboard.TotalStacks }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-refresh"></i> Update Now
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-body ">
+                    <div class="row">
+                        <div class="col-5 col-md-4">
+                            <div class="icon-big text-center icon-warning">
+                                <i class="nc-icon nc-key-25 text-danger"></i>
+                            </div>
+                        </div>
+                        <div class="col-7 col-md-8">
+                            <div class="numbers">
+                                <p class="card-category">Credentials</p>
+                                <p class="card-title">
+                                    {{ dashboard.TotalCredentials }}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer ">
+                    <hr>
+                    <div class="stats">
+                        <i class="fa fa-refresh"></i> Update Now
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div class="numbers pull-left">
+                                -
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="pull-right">
+                <span class="badge badge-pill badge-success">
+                  -%
+                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h6 class="big-title">total cost</h6>
+                    <canvas id="activeUsers" width="826" height="380"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div class="numbers pull-left">
+                                -
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="pull-right">
+                <span class="badge badge-pill badge-danger">
+                  -%
+                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h6 class="big-title">total earning time</h6>
+                    <canvas id="emailsCampaignChart" width="826" height="380"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row">
+                        <div class="col-sm-7">
+                            <div class="numbers pull-left">
+                                -
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="pull-right">
+                <span class="badge badge-pill badge-warning">
+                  -%
+                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h6 class="big-title">total downloads in last 6 years</h6>
+                    <canvas id="activeCountries" width="826" height="380"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

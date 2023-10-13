@@ -1,0 +1,52 @@
+<div class="main-content" xmlns="http://www.w3.org/1999/html">
+    <div class="col-md-10 mr-auto ml-auto">
+        <div>
+            <div class="card" data-color="primary">
+                <form>
+                    <div class="card-header text-center">
+                        <h3 class="card-title">
+                            Profile
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane show active">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-10 mt-3">
+                                        Name
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"></span>
+                                            </div>
+                                            <div class="form-control" *ngIf="auth.user$ | async as user" readonly>
+                                                {{ user.name }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-lg-10 mt-3">
+                                        Email
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"></span>
+                                            </div>
+                                            <div class="form-control" *ngIf="auth.user$ | async as user" readonly>
+                                                {{ user.email }}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="pull-right" style="margin-right: 5px;">
+                            <button type='button' class='btn btn-danger' (click)="delete()"> delete account</button>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

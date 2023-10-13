@@ -1,0 +1,124 @@
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card">
+                        <form [formGroup]="myForm" class="form-horizontal" (submit)="createStack(myForm)">
+                            <div class="card-header ">
+                                <h4 class="card-title">New Stack</h4>
+                                <a style="padding: 2px" href="https://{{selectedCredential.Account}}.signin.aws.amazon.com/console" *ngIf="selectedCredential?.Provider == 'AWS'" target="_blank">
+                                    <img width="25" height="25" src="./assets/img/aws-icon.png" title="AWS Account">
+                                </a>
+                                <a style="padding: 2px" href="https://us-east-1.console.aws.amazon.com/ec2/home?region=us-east-1#AMICatalog:" *ngIf="selectedCredential?.Provider == 'AWS'" target="_blank">
+                                    <img width="25" height="25" src="./assets/img/aws-ami-icon.png" title="AWS AMI">
+                                </a>
+                            </div>
+
+                            <div class="card-body">
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            Name
+                                        </label>
+                                        <div class="col-sm-12">
+                                            <input class="form-control" formControlName="name" required>
+                                        </div>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            Description
+                                        </label>
+                                        <div class="col-sm-12">
+                                            <input class="form-control" formControlName="description" required>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            Project
+                                        </label>
+                                        <div class="col-sm-12">
+                                            <select class="form-control" [(ngModel)]="projectIdByTenant"
+                                                    formControlName="projectIdByTenant" (change)="getCredentials()">
+                                                <option *ngFor="let project of projects" [value]="project.IdByTenant">
+                                                    {{project.Name}}
+                                                </option>
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            Credential
+                                        </label>
+                                        <div class="col-sm-12">
+                                            <select class="form-control" formControlName="credentialByTenant"
+                                                    (change)="setCredential($event)">
+                                                <option *ngFor="let credential of credentials"
+                                                        [value]="credential.IdByTenant">
+                                                    {{credential.Name}} ({{credential.AccessKeyMask}})
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            Region
+                                        </label>
+                                        <div class="col-sm-12">
+                                            <input class="form-control" formControlName="region" required>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group">
+                                        <label class="col-sm-2 control-label">
+                                            Template Name
+                                        </label>
+                                        <div class="col-sm-12">
+                                            <select class="form-control" [(ngModel)]="templateIndex"
+                                                    formControlName="templateIndex" (change)="selectTemplate()">
+                                                <option *ngFor="let template of templates;let i = index" [value]="i">
+                                                    {{template.Name}}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="form-group" formArrayName="dynamicControls">
+                                        <label class="col-sm-2 control-label"  *ngIf="fields?.length > 0">
+                                            Variables
+                                        </label>
+                                        <div class="col-sm-12" *ngFor="let control of dynamicControls.controls; let i = index">
+                                            <label class="col-sm-12 control-label">
+                                                {{fields[i]}}
+                                            </label>
+                                            <div class="col-sm-12">
+                                                <input type="text" [formControlName]="i"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="card-footer text-center">
+                                <button type="submit" class="btn btn-info btn-fill" [disabled]="myForm.invalid">
+                                    Ok
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

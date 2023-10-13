@@ -1,0 +1,94 @@
+<div class="main-content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header ">
+                        <h4 class="card-title">Template</h4>
+                    </div>
+                    <div class="card-body">
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Name
+                                </label>
+                                <div class="col-sm-12">
+                                    <select class="form-control" [(ngModel)]="templateIndex">
+                                        <option *ngFor="let template of templates; let i = index" [value]="i">
+                                            {{template.Name}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Description
+                                </label>
+                                <div class="col-sm-12">
+                                    {{templates[templateIndex].Description }}
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Engine
+                                </label>
+                                <div class="col-sm-12">
+                                    {{templates[templateIndex].Engine }}
+                                </div>
+
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Provider
+                                </label>
+                                <div class="col-sm-12">
+                                    {{templates[templateIndex].Provider }}
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Template
+                                </label>
+                                <div class="col-sm-12">
+                                    <br>
+                                    <pre>{{templates[templateIndex].Template }}</pre>
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Access Control Service
+                                </label>
+                                <div class="col-sm-12">
+                                    {{templates[templateIndex].ControlAccessService }}
+                                </div>
+                            </div>
+                        </fieldset>
+                        <fieldset>
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label">
+                                    Security Policy
+                                </label>
+                                <div class="col-sm-12">
+                                    <pre>
+                                        {{ templates[templateIndex].Policy }}
+                                    </pre>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
